@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>1000 Rejections before Summer</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add_2" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
         <link rel="stylesheet" href="./res/css/style.css" />
         <link rel="icon" href="./res/img/logo.png">
 
@@ -14,32 +14,46 @@
             <h1 class="mainTitle">1000 Rejections before Summer</h1>
             <p class="description">
                 Welcome to the 1000 Rejections before Summer project! I created this website because I am 
-                tired of missing opportunities by being afraid of being rejected. So I created this as a 
+                tired of missing opportunities by being afraid of getting rejected. So I created this as a 
                 form of rejection theraphy, were you will set a rejection goal and track your progress 
                 towards it!
             </p>
         </div>
         <div class="container" id="main">
             <table>
-                <div class ="tableTitle">
-                <tr>
+                <tr class ="tableTitle">
                     <th>Date</th>
                     <th>Description</th>
                     <th>Category</th>
                     <th>Outcome</th>
                 </tr>
-                </div>
             </table>
             <div id="side">
-                <button id="logRejectionBtn">
+                <button>
                     <span class="material-symbols-outlined">
                         add_2
                     </span>
                     Log Attempt
                 </button>
-                <div id="progressContainer">
-                    <div id="progressBar"></div>
+                <button>
+                    <span class="material-symbols-outlined">
+                        edit
+                    </span>
+                    Edit Goal
+                </button>
+                <button>
+                    <span class="material-symbols-outlined">
+                        bar_chart
+                    </span>
+                    View Stats
+                </button>
+                <div id="progressTitle">
+                    Progress towards goal:
                 </div>
+                <div id="progressContainer">
+                    <div id="progressBar">0%</div>
+                </div>
+    
             </div>
         </div>
 

@@ -18,11 +18,9 @@ body {
     font-size: 1.5em;
 }
 .container {
-    padding: 10px;
     border-radius: 10px;
     text-align: center;
     justify-items: center;
-    
 }
 .mainTitle {
     font-size: 2em;
@@ -35,23 +33,15 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
-#side {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 20px;
-}
+
 table {
     border-collapse: collapse;
-    border-radius: 10px;
+    margin-top: 0;
+    padding-top: 0;
+}
 
-}
-tr {
-    border-radius: 10px;
-}
 
 th {
     color: #000;
@@ -61,28 +51,72 @@ th, td {
     border-bottom: 3px solid rgb(0, 0, 0, 0.8);;
 }  
 
+#side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    padding-top: 9px;
+}
+
+#progressTitle {
+    display: flex;
+    color: #000;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-bottom: 3px;
+}
+
+#progressContainer {
+    width: 100%;
+    background-color: rgb(255, 255, 255, 0.8);
+    box-shadow: 4px 4px 0px rgb(0, 0, 0, 0.8);
+    border: 3px solid #000;
+    margin:5px;
+    display:flex;
+    justify-content: flex-start;
+}
+#progressBar {
+    height: 100%;
+    background-color: rgb(92, 172, 95, 0.8);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 7px
+
+}
+
 button {
     background-color: rgb(255, 255, 255, 0.8);
-    border-radius: 10px;
     font-family: 'Tiny5', sans-serif;
     color: #000;
     border: 3px solid #000;
     font-size: 1em;
     cursor: pointer;
+    box-shadow: 4px 4px 0px rgb(0, 0, 0, 0.8);
+    margin:5px;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 100%;
+    margin-top: 0;
 }
 
 button > .material-symbols-outlined {
     font-size: 1em;
-    font-weight: 700;
+    font-weight: bold;
 }
 
 button > * {
-    padding: 5px
+    padding: 7px
 }
 button:hover {
     background-color: rgb(255, 255, 255, 1);
+}
+button:active {
+    box-shadow: 2px 2px 0px rgb(0, 0, 0, 0.8);
+    transform: translate(2px, 2px);
 }
