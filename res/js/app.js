@@ -2,6 +2,7 @@ var rejections = JSON.parse(localStorage.getItem('rejections')) || [];
 const outcomes = ['Rejected', 'Pending', 'Accepted'];
 var objective = JSON.parse(localStorage.getItem('objective')) || 1000;
 var progress = JSON.parse(localStorage.getItem('progress')) || rejections.filter(r => r.outcome === 'Rejected').length;
+var deadline = JSON.parse(localStorage.getItem('deadline')) || new Date(2026, 6, 1).toISOString().split('T')[0];
 
 function saveRejections() {
     localStorage.setItem('rejections', JSON.stringify(rejections));
@@ -56,4 +57,20 @@ function editObjective(newObjective) {
 
 function saveProgress() {
     localStorage.setItem('progress', JSON.stringify(progress));
+}
+
+function saveDeadline() {
+    localStorage.setItem('deadline', JSON.stringify(deadline));
+}
+
+function editDeadline(year, month, day) {
+    deadline = new Date(year, month, day).toISOString().split('T')[0];
+    saveDeadline();
+}
+
+function showByID(id){
+    var toShow = document.getElementById(id);
+    if (toShow.style.display === "none") {
+        toShow.style.display = "block";
+    }
 }

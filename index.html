@@ -21,15 +21,27 @@
         </div>
         <div class="container" id="main">
             <table>
-                <tr class ="tableTitle">
+                <tr>
                     <th>Date</th>
                     <th>Description</th>
                     <th>Category</th>
                     <th>Outcome</th>
                 </tr>
+                <tr>
+                    <td>16/03/2026</td>
+                    <td>Internship Google</td>
+                    <td>Job</td>
+                    <td>Rejected</td>
+                </tr>
+                <tr>
+                    <td>16/03/2026</td>
+                    <td>Internship Google</td>
+                    <td>Job</td>
+                    <td>Rejected</td>
+                </tr>
             </table>
             <div id="side">
-                <button>
+                <button onclick="showById('logAttempt')">
                     <span class="material-symbols-outlined">
                         add_2
                     </span>
@@ -43,18 +55,35 @@
                 </button>
                 <button>
                     <span class="material-symbols-outlined">
-                        bar_chart
+                        calendar_month
+                    </span>
+                    Edit Deadline
+                </button>
+                <button>
+                    <span class="material-symbols-outlined">
+                        view_list
                     </span>
                     View Stats
                 </button>
+                <div id="goalInfo">
+                    100 days left
+                </div>
                 <div id="progressTitle">
                     Progress towards goal:
                 </div>
-                <div id="progressContainer">
-                    <div id="progressBar">0%</div>
-                </div>
+                <div id="containerContainer">
+                    <div id="progressContainer">
+                        <div id="progressBar"></div>
+                    </div>
+                    <div id="progressInfo">
+                        500/1000
+                    </div>
+                </div> 
     
             </div>
+        </div>
+        <div class="popUp" id="logAttempt">
+            
         </div>
 
     </body>

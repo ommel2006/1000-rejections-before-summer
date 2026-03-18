@@ -16,6 +16,7 @@ body {
     position: fixed;
 
     font-size: 1.5em;
+    position: relative;
 }
 .container {
     border-radius: 10px;
@@ -23,7 +24,9 @@ body {
     justify-items: center;
 }
 .mainTitle {
-    font-size: 2em;
+    font-size: 2.2em;
+    font-weight: bold;
+    text-shadow: 4px 4px 0px rgb(0, 0, 0, 0.8);
 }
 .description {
     margin-top: 20px;
@@ -38,17 +41,20 @@ body {
 
 table {
     border-collapse: collapse;
-    margin-top: 0;
-    padding-top: 0;
+    margin-top: 5px;
+    background-color: rgb(255, 255, 255, 0.8);
+    box-shadow: 4px 4px 0px rgb(0, 0, 0, 0.8);
+    border: 3px solid #000;
 }
 
 
 th {
-    color: #000;
+    border-bottom: 3px solid rgb(0, 0, 0, 0.8);
 }
 th, td {
+    color: #000;
     padding: 9px;
-    border-bottom: 3px solid rgb(0, 0, 0, 0.8);;
+    
 }  
 
 #side {
@@ -67,7 +73,14 @@ th, td {
     margin-top: 12px;
     margin-bottom: 3px;
 }
+#containerContainer {
+    width: 100%;
+    position: relative;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #progressContainer {
     width: 100%;
     background-color: rgb(255, 255, 255, 0.8);
@@ -79,12 +92,28 @@ th, td {
 }
 #progressBar {
     height: 100%;
-    background-color: rgb(92, 172, 95, 0.8);
+    background-color: rgba(106, 183, 103, 0.6);
     color: #fff;
     display: flex;
     justify-content: center;
-    padding: 7px
+    height: 40px;
+    width: 50%;
 
+}
+#progressInfo {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #000;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+    position: absolute;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button {
@@ -119,4 +148,26 @@ button:hover {
 button:active {
     box-shadow: 2px 2px 0px rgb(0, 0, 0, 0.8);
     transform: translate(2px, 2px);
+}
+
+#goalInfo {
+    margin-top: 5px;
+    font-size: 1.8em;
+    color: #000;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+#goalInfo > * {
+    width: 100%;
+}
+
+.popUp {
+    visibility: none;
+    position: absolute;
+    background-color: rgb(255, 255, 255, 0.8);
+    height: 100px;
+    width: 100px;
+    box-shadow: 4px 4px 0px rgb(0, 0, 0, 0.8);
+    border: 3px solid #000;
 }
