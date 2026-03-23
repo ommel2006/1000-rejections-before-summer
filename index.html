@@ -10,6 +10,9 @@
 
     </head>
     <body>
+
+        <script src="./res/js/app.js"></script>
+
         <div class="container">
             <h1 class="mainTitle">1000 Rejections before Summer</h1>
             <p class="description">
@@ -41,25 +44,25 @@
                 </tr>
             </table>
             <div id="side">
-                <button onclick="showById('logAttempt')">
+                <button onclick="showByID('logAttempt')">
                     <span class="material-symbols-outlined">
                         add_2
                     </span>
                     Log Attempt
                 </button>
-                <button>
+                <button onclick="showByID('editGoal')">
                     <span class="material-symbols-outlined">
                         edit
                     </span>
                     Edit Goal
                 </button>
-                <button>
+                <button onclick="showByID('editDeadline')">
                     <span class="material-symbols-outlined">
                         calendar_month
                     </span>
                     Edit Deadline
                 </button>
-                <button>
+                <button onclick="showByID('viewStats')">
                     <span class="material-symbols-outlined">
                         view_list
                     </span>
@@ -83,7 +86,66 @@
             </div>
         </div>
         <div class="popUp" id="logAttempt">
-            
+            <div class = "exitButtonContainer">
+                <p>Logging rejection attempt</p>
+                <button onclick="hideByID('logAttempt')">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </button>
+            </div>
+            <div class="container">
+                <div class = "question">
+                    <label for="descriptionQ">Description:</label>
+                    <input type="text" id="descriptionQ" name="descriptionQ">
+                </div>
+                <div class = "question">
+                    <label for="category">Category:</label>
+                    <input type="text" id="category" name="category">
+                </div>
+                <div class = "question">
+                    <label for="category">Date:</label>
+                    <input type="date" id="date" name="date">
+                </div>
+                <div class = "question">
+                    <label for="outcome">Outcome:</label>
+                    <select name="outcome" id="outcome">
+                        <option value="rejected">Rejected</option>
+                        <option value="accepted">Accepted</option>
+                        <option value="pending">Pending</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="popUp" id="editGoal">
+            <div class = "exitButtonContainer">
+                <p>Editing rejection goals</p>
+                <button onclick="hideByID('editGoal')">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="popUp" id="editDeadline">
+            <div class = "exitButtonContainer">
+                <p>Editing goals deadline</p>
+                <button onclick="hideByID('editDeadline')">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="popUp" id="viewStats">
+            <div class = "exitButtonContainer">
+                <p>Viewing stats</p>
+                <button onclick="hideByID('viewStats')">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </button>
+            </div>
         </div>
 
     </body>

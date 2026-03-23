@@ -1,35 +1,34 @@
 var rejections = JSON.parse(localStorage.getItem('rejections')) || [];
-const outcomes = ['Rejected', 'Pending', 'Accepted'];
+var currentPopUp = null;
 var objective = JSON.parse(localStorage.getItem('objective')) || 1000;
-var progress = JSON.parse(localStorage.getItem('progress')) || rejections.filter(r => r.outcome === 'Rejected').length;
+var progress = JSON.parse(localStorage.getItem('progress')) || rejections.filter(r => r.outcome === 'rejected').length;
 var deadline = JSON.parse(localStorage.getItem('deadline')) || new Date(2026, 6, 1).toISOString().split('T')[0];
 
 function saveRejections() {
     localStorage.setItem('rejections', JSON.stringify(rejections));
 }
 
-function addRejection(description, category, outcome, date, notes = null){
-    const newRejection = new Rejection(description, category, outcome, date, notes);
+function addRejection(description, category, outcome, date){
+    const newRejection = new Rejection(description, category, outcome, date);
     rejections.push(newRejection);
-    if (outcome === 'Rejected') {
+    if (outcome === 'rejected') {
         progress++;
         saveProgress();
     }
     saveRejections();
 }
 
-function editRejection(id, description = null, category = null, outcome = null, date = null, notes = null) {
+function editRejection(id, description = null, category = null, outcome = null, date = null) {
     const rejection = rejections.find(r => r.id === id);
     if (rejection) {
         if (description !== null) rejection.editDescription(description);
         if (category !== null) rejection.editCategory(category);
         if (outcome !== null) rejection.editOutcome(outcome);
-        if (outcome === 'Rejected') {
+        if (outcome === 'rejected') {
             progress++;
             saveProgress();
         }
         if (date !== null) rejection.editDate(date);
-        if (notes !== null) rejection.editNotes(notes);
         saveRejections();
     }
 }
@@ -37,7 +36,7 @@ function editRejection(id, description = null, category = null, outcome = null, 
 function deleteRejection(id) {
     const rejection = rejections.find(r => r.id === id);
     if (rejection) {
-        if (rejection.outcome === 'Rejected') {
+        if (rejection.outcome === 'rejected') {
             progress--;
             saveProgress();
         }
@@ -69,8 +68,13 @@ function editDeadline(year, month, day) {
 }
 
 function showByID(id){
-    var toShow = document.getElementById(id);
-    if (toShow.style.display === "none") {
-        toShow.style.display = "block";
+    if (currentPopUp != null) {
+        hideByID(currentPopUp);
     }
+    document.getElementById(id).style.display = "flex";
+    currentPopUp = id;
+}
+function hideByID(id){
+    document.getElementById(id).style.display = "none";
+    currentPopUp = null;
 }

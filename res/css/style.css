@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
 
+html, body{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
 body {
     background-image: url('../img/bg.jpg');
     background-repeat: no-repeat;
@@ -7,19 +13,17 @@ body {
     background-color: #f0e6d2;
     font-family: 'Tiny5', sans-serif;
     color: #fff;
-    margin: 0;
+    
     
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    position: fixed;
 
     font-size: 1.5em;
     position: relative;
 }
 .container {
-    border-radius: 10px;
     text-align: center;
     justify-items: center;
 }
@@ -163,11 +167,56 @@ button:active {
 }
 
 .popUp {
-    visibility: none;
+    display: none;
     position: absolute;
     background-color: rgb(255, 255, 255, 0.8);
-    height: 100px;
-    width: 100px;
+    width: 40%;
     box-shadow: 4px 4px 0px rgb(0, 0, 0, 0.8);
+    border: 3px solid #000;
+    color: #000;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    flex-direction: column;
+    align-items: start;
+
+}
+
+.exitButtonContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: bold;
+    align-items: start;
+    font-size: 1.5em;
+}
+.exitButtonContainer > button {
+    width: auto;
+    padding: 0;
+    margin-top: 2px;
+    font-size: 0.75em;
+}
+.exitButtonContainer > p {
+    margin: 10px;
+}
+
+.popUp > .container {
+    text-align: start;
+    justify-items: start;
+}
+.question {
+    padding: 2px;
+    padding-left: 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+input, select {
+    height: 100%;
+    font-family: 'Tiny5', sans-serif;
+    font-size: 1em;
     border: 3px solid #000;
 }
