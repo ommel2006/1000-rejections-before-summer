@@ -20,5 +20,3 @@ class Rejection {
     }
 
 }
-
-export {Rejection};

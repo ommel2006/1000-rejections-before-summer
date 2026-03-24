@@ -169,8 +169,7 @@ button:active {
 .popUp {
     display: none;
     position: absolute;
-    background-color: rgb(255, 255, 255, 0.8);
-    width: 40%;
+    background-color: rgb(255, 254, 244, 0.8);
     box-shadow: 4px 4px 0px rgb(0, 0, 0, 0.8);
     border: 3px solid #000;
     color: #000;
@@ -219,4 +218,14 @@ input, select {
     font-family: 'Tiny5', sans-serif;
     font-size: 1em;
     border: 3px solid #000;
+    background-color: rgb(255, 255, 255, 0.6);
+}
+.saveContainer {
+    margin-top: 7px;
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+.saveContainer > button {
+    width: auto;
 }

@@ -12,6 +12,7 @@
     <body>
 
         <script src="./res/js/app.js"></script>
+        <script src="./res/js/rejection.js"></script>
 
         <div class="container">
             <h1 class="mainTitle">1000 Rejections before Summer</h1>
@@ -23,25 +24,14 @@
             </p>
         </div>
         <div class="container" id="main">
-            <table>
+            <table id="rejectionTable">
                 <tr>
                     <th>Date</th>
                     <th>Description</th>
                     <th>Category</th>
                     <th>Outcome</th>
                 </tr>
-                <tr>
-                    <td>16/03/2026</td>
-                    <td>Internship Google</td>
-                    <td>Job</td>
-                    <td>Rejected</td>
-                </tr>
-                <tr>
-                    <td>16/03/2026</td>
-                    <td>Internship Google</td>
-                    <td>Job</td>
-                    <td>Rejected</td>
-                </tr>
+                
             </table>
             <div id="side">
                 <button onclick="showByID('logAttempt')">
@@ -110,11 +100,25 @@
                 <div class = "question">
                     <label for="outcome">Outcome:</label>
                     <select name="outcome" id="outcome">
-                        <option value="rejected">Rejected</option>
-                        <option value="accepted">Accepted</option>
-                        <option value="pending">Pending</option>
+                        <option value="Rejected">Rejected</option>
+                        <option value="Accepted">Accepted</option>
+                        <option value="Pending" selected>Pending</option>
                     </select>
                 </div>
+            </div>
+            <div class = "saveContainer">
+                <button onclick="reset()">
+                    <span class="material-symbols-outlined">
+                        restart_alt
+                    </span>
+                    Reset
+                </button>
+                <button onclick="addRejection('descriptionQ', 'category', 'outcome', 'date'); hideByID('logAttempt')">
+                    <span class="material-symbols-outlined">
+                        folder
+                    </span>
+                    Save
+                </button>
             </div>
         </div>
         <div class="popUp" id="editGoal">
