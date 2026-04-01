@@ -60,6 +60,9 @@ th, td {
     padding: 9px;
     
 }  
+.rejectionRow:hover {
+  cursor: pointer;
+}
 
 #side {
     display: flex;
@@ -228,4 +231,10 @@ input, select {
 }
 .saveContainer > button {
     width: auto;
+}
+.actionCell {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

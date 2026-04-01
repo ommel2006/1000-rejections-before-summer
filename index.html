@@ -30,6 +30,7 @@
                     <th>Description</th>
                     <th>Category</th>
                     <th>Outcome</th>
+                    <th>Action</th>
                 </tr>
                 
             </table>
@@ -59,7 +60,7 @@
                     View Stats
                 </button>
                 <div id="goalInfo">
-                    100 days left
+                    <span id="daysLeft">-1</span> days left
                 </div>
                 <div id="progressTitle">
                     Progress towards goal:
@@ -69,10 +70,56 @@
                         <div id="progressBar"></div>
                     </div>
                     <div id="progressInfo">
-                        500/1000
+                        <span id="currProgress">-1</span>/<span id="currObjective">-1</span>
                     </div>
                 </div> 
     
+            </div>
+        </div>
+        <div class="popUp" id="editRejection">
+            <div class = "exitButtonContainer">
+                <p>Editing rejection</p>
+                <button onclick="hideByID('editRejection')">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </button>
+            </div>
+            <div class="container">
+                <div class = "question">
+                    <label for="descriptionQ">Description:</label>
+                    <input type="text" id="editDescription" name="descriptionQ">
+                </div>
+                <div class = "question">
+                    <label for="category">Category:</label>
+                    <input type="text" id="editCategory" name="category">
+                </div>
+                <div class = "question">
+                    <label for="category">Date:</label>
+                    <input type="date" id="editDate" name="date">
+                </div>
+                <div class = "question">
+                    <label for="outcome">Outcome:</label>
+                    <select name="outcome" id="editOutcome">
+                        <option value="Rejected">Rejected</option>
+                        <option value="Accepted">Accepted</option>
+                        <option value="Pending" selected>Pending</option>
+                    </select>
+                </div>
+            </div>
+            <div class = "saveContainer">
+                <button>
+                    <span class="material-symbols-outlined">
+                        restart_alt
+                    </span>
+                    Reset
+                </button>
+                <button onclick="addRejection('descriptionQ', 'category', 'outcome', 'date'); hideByID('logAttempt')">
+                    <span class="material-symbols-outlined">
+                        folder
+                    </span>
+                    Save
+                </button>
             </div>
         </div>
         <div class="popUp" id="logAttempt">
