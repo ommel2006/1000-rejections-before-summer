@@ -47,7 +47,7 @@
                     </span>
                     Edit Goal
                 </button>
-                <button onclick="showByID('editDeadline')">
+                <button onclick="showByID('editGoal')">
                     <span class="material-symbols-outlined">
                         calendar_month
                     </span>
@@ -86,6 +86,7 @@
                 </button>
             </div>
             <div class="container">
+                <p id="editID" style="display:none"></p>
                 <div class = "question">
                     <label for="descriptionQ">Description:</label>
                     <input type="text" id="editDescription" name="descriptionQ">
@@ -114,7 +115,7 @@
                     </span>
                     Reset
                 </button>
-                <button onclick="addRejection('descriptionQ', 'category', 'outcome', 'date'); hideByID('logAttempt')">
+                <button onclick="editRejection(Number(document.getElementById('editID').value), document.getElementById('editDescription').value, document.getElementById('editCategory').value, document.getElementById('editOutcome').value, document.getElementById('editDate').value); hideByID('editRejection')">
                     <span class="material-symbols-outlined">
                         folder
                     </span>
@@ -177,14 +178,26 @@
                     </span>
                 </button>
             </div>
-        </div>
-        <div class="popUp" id="editDeadline">
-            <div class = "exitButtonContainer">
-                <p>Editing goals deadline</p>
-                <button onclick="hideByID('editDeadline')">
+            <div class = "question">
+                <label for="rejectionGoal">New rejection goal:</label>
+                <input type="number" id="rejectionGoal" name="rejectionGoal">
+            </div>
+            <div class = "question">
+                <label for="deadline">New deadline:</label>
+                <input type="date" id="deadline" name="deadline">
+            </div>
+            <div class = "saveContainer">
+                <button onclick="reset()">
                     <span class="material-symbols-outlined">
-                        close
+                        restart_alt
                     </span>
+                    Reset
+                </button>
+                <button onclick="editObjective(document.getElementById('rejectionGoal').value); editDeadline(document.getElementById('deadline').value); hideByID('editGoal')">
+                    <span class="material-symbols-outlined">
+                        folder
+                    </span>
+                    Save
                 </button>
             </div>
         </div>

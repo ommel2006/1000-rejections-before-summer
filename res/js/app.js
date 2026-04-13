@@ -165,6 +165,7 @@ function addRow(table, rejection){
     var editButton = document.createElement("button");
     editButton.onclick = function() {
         showByID('editRejection');
+        fillOutEditForm(Number(row.id));
     }
     deleteButton.appendChild(createIcon("delete"));
     editButton.appendChild(createIcon("edit"));
@@ -198,6 +199,8 @@ function updateProgressBar() {
     document.getElementById('currProgress').textContent = progress();
     document.getElementById('currObjective').textContent = objective;
     document.getElementById('progressBar').style.width = (progress() / objective * 100) + '%';
+    document.getElementById('rejectionGoal').defaultValue = objective;
+    document.getElementById('deadline').defaultValue = deadline;
 }
 
 function createIcon(name){
@@ -208,8 +211,14 @@ function createIcon(name){
 }
 function fillOutEditForm(id){
     const rejection = rejections.find(r => r.id === id);
+    document.getElementById('editID').value = rejection.id;
     document.getElementById('editDescription').defaultValue = rejection.description;
     document.getElementById('editCategory').defaultValue = rejection.category;
     document.getElementById('editOutcome').defaultValue = rejection.outcome;
+    for(let option of document.getElementById('editOutcome').options){
+        if (option.value == rejection.outcome){
+            option.selected = true;
+        }
+    }
     document.getElementById('editDate').defaultValue = rejection.date;
 }
