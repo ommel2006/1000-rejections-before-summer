@@ -42,7 +42,19 @@ body {
     justify-content: center;
     align-items: start;
 }
-
+#completeTable {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: left;
+}
+#searchBar {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 1em;
+    border: 3px solid #000;
+    background-color: rgb(255, 255, 255, 0.6);
+}
 table {
     border-collapse: collapse;
     margin-top: 5px;
@@ -50,10 +62,13 @@ table {
     box-shadow: 4px 4px 0px rgb(0, 0, 0, 0.8);
     border: 3px solid #000;
 }
-#rejectionTable {
-    max-width: 80%;
-    max-height: 50%;
-    overflow-y: auto;
+#rejectionTable > thead {
+    display: block;
+}
+#rejectionTable > tbody {
+    overflow-y: scroll;
+    max-height: 300px;
+    display: block;
 }
 
 th {
@@ -62,11 +77,8 @@ th {
 th, td {
     color: #000;
     padding: 9px;
-    
+    width: 150px;
 }  
-.rejectionRow:hover {
-  cursor: pointer;
-}
 
 #side {
     display: flex;

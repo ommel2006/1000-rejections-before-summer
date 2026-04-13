@@ -26,19 +26,19 @@ function saveRejections() {
     localStorage.setItem('rejections', JSON.stringify(rejections));
 }
 
-function addRejection(descriptionID, categoryID, outcomeID, dateID){
-    if (emptyForm(descriptionID, categoryID, outcomeID, dateID)) {
-        alert("Please fill out all fields.");
-        return;
-    }
-    const description = document.getElementById(descriptionID).value;
-    const category = document.getElementById(categoryID).value;
-    const outcome = document.getElementById(outcomeID).value;
-    const date = document.getElementById(dateID).value;
+function addRejection(description, category, outcome, date){
     const newRejection = new Rejection(description, category, outcome, date);
     rejections.push(newRejection);
     saveRejections();
     update();
+}
+
+function addRejectionHTML(descriptionID, categoryID, outcomeID, dateID){
+    if (emptyForm(descriptionID, categoryID, outcomeID, dateID)) {
+        alert("Please fill out all fields.");
+        return;
+    }
+    addRejection(document.getElementById(descriptionID).value, document.getElementById(categoryID).value, document.getElementById(outcomeID).value, document.getElementById(dateID).value);
 }
 
 function editRejection(id, description = null, category = null, outcome = null, date = null) {
@@ -52,6 +52,15 @@ function editRejection(id, description = null, category = null, outcome = null, 
         update();
     }
 }
+
+function editRejectionHTML(id, descriptionID, categoryID, outcomeID, dateID) {
+    if (emptyForm(descriptionID, categoryID, outcomeID, dateID)) {
+        alert("Please fill out all fields.");
+        return;
+    }
+    editRejection(id, document.getElementById(descriptionID).value, document.getElementById(categoryID).value, document.getElementById(outcomeID).value, document.getElementById(dateID).value);
+}
+
 
 function deleteRejection(id) {
     if (!confirm("Are you sure you want to delete this rejection?")) {
@@ -111,11 +120,13 @@ function reset(){
     }
 }
 
-function displayRejections(){
+function displayRejections(param = null){
     const table = document.createElement("table");
     document.getElementById('rejectionTable').replaceWith(table);
     table.id = "rejectionTable";
-    let header = table.insertRow();
+
+    let headerHead = table.createTHead();
+    let header = headerHead.insertRow();
     th = document.createElement('th');
     th.textContent = "Date";
     header.appendChild(th);
@@ -132,8 +143,14 @@ function displayRejections(){
     th.textContent = "Action";
     header.appendChild(th);
 
+    let tbody = document.createElement("tbody");
+    table.appendChild(tbody);
+
+
     for (let rejection of rejections){
-        addRow(table, rejection);
+        if (param === null || rejection.description.toLowerCase().includes(param.toLowerCase()) || rejection.category.toLowerCase().includes(param.toLowerCase()) || rejection.outcome.toLowerCase().includes(param.toLowerCase())) {
+            addRow(tbody, rejection);
+        }
     }
 }
 

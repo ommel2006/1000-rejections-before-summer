@@ -24,16 +24,10 @@
             </p>
         </div>
         <div class="container" id="main">
-            <table id="rejectionTable">
-                <tr>
-                    <th>Date</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Outcome</th>
-                    <th>Action</th>
-                </tr>
-                
-            </table>
+            <div id="completeTable">
+                <input type="text" id="searchBar" placeholder="Search by description, category, or outcome" oninput="displayRejections(this.value)">
+                <table id="rejectionTable"></table>
+            </div>
             <div id="side">
                 <button onclick="showByID('logAttempt')">
                     <span class="material-symbols-outlined">
@@ -115,7 +109,7 @@
                     </span>
                     Reset
                 </button>
-                <button onclick="editRejection(Number(document.getElementById('editID').value), document.getElementById('editDescription').value, document.getElementById('editCategory').value, document.getElementById('editOutcome').value, document.getElementById('editDate').value); hideByID('editRejection')">
+                <button onclick="editRejectionHTML(Number(document.getElementById('editID').value), 'editDescription', 'editCategory', 'editOutcome', 'editDate'); hideByID('editRejection')">
                     <span class="material-symbols-outlined">
                         folder
                     </span>
@@ -161,7 +155,7 @@
                     </span>
                     Reset
                 </button>
-                <button onclick="addRejection('descriptionQ', 'category', 'outcome', 'date'); hideByID('logAttempt')">
+                <button onclick="addRejectionHTML('descriptionQ', 'category', 'outcome', 'date'); hideByID('logAttempt')">
                     <span class="material-symbols-outlined">
                         folder
                     </span>
