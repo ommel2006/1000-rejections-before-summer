@@ -83,6 +83,13 @@ function editObjective(newObjective) {
     saveObjective();
     updateProgressBar();
 }
+function editObjectiveHTML(objectiveID) {
+    if (emptyForm(objectiveID)) {
+        alert("Please fill out the field.");
+        return;
+    }
+    editObjective(document.getElementById(objectiveID).value);
+}
 
 function saveDeadline() {
     localStorage.setItem('deadline', JSON.stringify(deadline));
@@ -93,16 +100,25 @@ function editDeadline(newDeadline) {
     saveDeadline();
     displayDaysLeft();
 }
+function editDeadlineHTML(deadlineID) {
+    if (emptyForm(deadlineID)) {
+        alert("Please fill out the field.");
+        return;
+    }
+    editDeadline(document.getElementById(deadlineID).value);
+}
 
 function showByID(id){
     if (currentPopUp != null) {
         hideByID(currentPopUp);
     }
     document.getElementById(id).style.display = "flex";
+    document.getElementById('overlay').style.display = 'block';
     currentPopUp = id;
 }
 function hideByID(id){
     document.getElementById(id).style.display = "none";
+    document.getElementById('overlay').style.display = 'none';
     currentPopUp = null;
 }
 
@@ -148,7 +164,7 @@ function displayRejections(param = null){
 
 
     for (let rejection of rejections){
-        if (param === null || rejection.description.toLowerCase().includes(param.toLowerCase()) || rejection.category.toLowerCase().includes(param.toLowerCase()) || rejection.outcome.toLowerCase().includes(param.toLowerCase())) {
+        if (param === null || rejection.date.includes(param) || rejection.description.toLowerCase().includes(param.toLowerCase()) || rejection.category.toLowerCase().includes(param.toLowerCase()) || rejection.outcome.toLowerCase().includes(param.toLowerCase())) {
             addRow(tbody, rejection);
         }
     }

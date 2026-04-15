@@ -13,6 +13,7 @@
 
         <script src="./res/js/app.js"></script>
         <script src="./res/js/rejection.js"></script>
+        <div id="overlay"></div>
 
         <div class="container">
             <h1 class="mainTitle">1000 Rejections before Summer</h1>
@@ -25,7 +26,7 @@
         </div>
         <div class="container" id="main">
             <div id="completeTable">
-                <input type="text" id="searchBar" placeholder="Search by description, category, or outcome" oninput="displayRejections(this.value)">
+                <input type="text" id="searchBar" placeholder="Search by date, description, category, or outcome" oninput="displayRejections(this.value)">
                 <table id="rejectionTable"></table>
             </div>
             <div id="side">
@@ -155,7 +156,7 @@
                     </span>
                     Reset
                 </button>
-                <button onclick="addRejectionHTML('descriptionQ', 'category', 'outcome', 'date'); hideByID('logAttempt')">
+                <button onclick="addRejectionHTML('descriptionQ', 'category', 'outcome', 'date'); hideByID('logAttempt');reset()">
                     <span class="material-symbols-outlined">
                         folder
                     </span>
@@ -187,7 +188,7 @@
                     </span>
                     Reset
                 </button>
-                <button onclick="editObjective(document.getElementById('rejectionGoal').value); editDeadline(document.getElementById('deadline').value); hideByID('editGoal')">
+                <button onclick="editObjectiveHTML('rejectionGoal'); editDeadlineHTML('deadline'); hideByID('editGoal')">
                     <span class="material-symbols-outlined">
                         folder
                     </span>
